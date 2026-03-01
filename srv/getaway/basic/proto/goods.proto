@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+option go_package ="./";
+
+package ecommerce;
+
+// ------------------------------------ 
+// Messages
+// ------------------------------------ 
+
+//--------------------------------goods--------------------------------
+message Goods {
+  int64 id = 1; //id
+  int64 createdAt = 2; //createdAt
+  int64 updatedAt = 3; //updatedAt
+  int64 deletedAt = 4; //deletedAt
+  string name = 5; //商品名称
+  double price = 6; //商品价格
+  int64 stock = 7; //库存
+}
+
+message AddGoodsReq {
+  string name = 1; //商品名称
+  double price = 2; //商品价格
+  int64 stock = 3; //库存
+}
+
+message AddGoodsResp {
+  string message =1;
+}
+
+message UpdateGoodsReq {
+  int64 id = 1; //id
+  int64 createdAt = 2; //createdAt
+  int64 updatedAt = 3; //updatedAt
+  int64 deletedAt = 4; //deletedAt
+  string name = 5; //商品名称
+  double price = 6; //商品价格
+  int64 stock = 7; //库存
+}
+
+message UpdateGoodsResp {
+}
+
+message DelGoodsReq {
+  int64 id = 1; //id
+}
+
+message DelGoodsResp {
+}
+
+message GetGoodsByIdReq {
+  int64 id = 1; //id
+}
+
+message GetGoodsByIdResp {
+  Goods goods = 1; //goods
+}
+
+message SearchGoodsReq {
+  int64 page = 1; //page
+  int64 limit = 2; //limit
+  int64 id = 3; //id
+  int64 createdAt = 4; //createdAt
+  int64 updatedAt = 5; //updatedAt
+  int64 deletedAt = 6; //deletedAt
+  string name = 7; //商品名称
+  double price = 8; //商品价格
+  int64 stock = 9; //库存
+}
+
+message SearchGoodsResp {
+  repeated Goods goods = 1; //goods
+}
+
+
+
+// ------------------------------------ 
+// Rpc Func
+// ------------------------------------ 
+
+service EcommerceService{ 
+
+	 //-----------------------goods----------------------- 
+	 rpc AddGoods(AddGoodsReq) returns (AddGoodsResp); 
+	 rpc UpdateGoods(UpdateGoodsReq) returns (UpdateGoodsResp); 
+	 rpc DelGoods(DelGoodsReq) returns (DelGoodsResp); 
+	 rpc GetGoodsById(GetGoodsByIdReq) returns (GetGoodsByIdResp); 
+	 rpc SearchGoods(SearchGoodsReq) returns (SearchGoodsResp); 
+
+}

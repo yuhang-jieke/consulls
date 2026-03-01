@@ -1,0 +1,2 @@
+2026/03/01 20:05:06 interceptor.go:29: [入参] method=/ecommerce.EcommerceService/AddGoods, request=name:"dfsdf" price:12.1 stock:12
+2026/03/01 20:05:07 interceptor.go:37: [响应成功] method=/ecommerce.EcommerceService/AddGoods, duration=133.7274ms, response=message:"商品添加成功"

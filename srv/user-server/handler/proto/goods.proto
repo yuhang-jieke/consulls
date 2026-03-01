@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+option go_package ="./";
+
+package ecommerce;
+
+// ------------------------------------ 
+// Messages
+// ------------------------------------ 
+
+//--------------------------------goods--------------------------------
+message Goods {
+  string name = 1; //商品名称
+  double price = 2; //商品价格
+  int64 stock = 3; //库存
+}
+
+message AddGoodsReq {
+  string name = 1; //商品名称
+  double price = 2; //商品价格
+  int64 stock = 3; //库存
+}
+
+message AddGoodsResp {
+  string message =1;
+}
+
+message UpdateGoodsReq {
+  int64 id = 1; //id
+  int64 stock = 2; //库存
+}
+
+message UpdateGoodsResp {
+  string message =1;
+}
+
+message DelGoodsReq {
+  int64 id = 1; //id
+}
+
+message DelGoodsResp {
+}
+
+message GetGoodsByIdReq {
+  int64 id = 1; //id
+}
+
+message GetGoodsByIdResp {
+  Goods goods = 1; //goods
+}
+
+message SearchGoodsReq {
+  int64 page = 1; //page
+  int64 size =2; //size
+}
+
+message SearchGoodsResp {
+  repeated Goods goods = 1; //goods
+}
+
+
+
+// ------------------------------------ 
+// Rpc Func
+// ------------------------------------ 
+
+service EcommerceService{ 
+
+	 //-----------------------goods----------------------- 
+	 rpc AddGoods(AddGoodsReq) returns (AddGoodsResp); 
+	 rpc UpdateGoods(UpdateGoodsReq) returns (UpdateGoodsResp); 
+	 rpc DelGoods(DelGoodsReq) returns (DelGoodsResp); 
+	 rpc GetGoodsById(GetGoodsByIdReq) returns (GetGoodsByIdResp); 
+	 rpc SearchGoods(SearchGoodsReq) returns (SearchGoodsResp); 
+
+}

@@ -1,0 +1,11 @@
+Mysql:
+  Host: "115.190.57.118"
+  Port: 3306
+  User: "root"
+  Password: "4ay1nkal3u8ed77y"
+  Database: "zuoye7"
+Redis:
+  Host: "115.190.57.118"
+  Port: 6379
+  Password: "4ay1nkal3u8ed77y"
+  Database: 0
