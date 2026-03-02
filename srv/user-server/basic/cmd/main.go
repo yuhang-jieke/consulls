@@ -4,12 +4,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"log"
-	"net"
-	"os"
-	"os/signal"
-	"syscall"
-	"time"
 
 	"github.com/yuhang-jieke/consulls/srv/pkg/consul"
 	_ "github.com/yuhang-jieke/consulls/srv/user-server/basic/inits"
@@ -17,6 +11,12 @@ import (
 	__ "github.com/yuhang-jieke/consulls/srv/user-server/handler/proto"
 	"github.com/yuhang-jieke/consulls/srv/user-server/handler/server"
 	"google.golang.org/grpc"
+	"log"
+	"net"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 )
 
 const (
